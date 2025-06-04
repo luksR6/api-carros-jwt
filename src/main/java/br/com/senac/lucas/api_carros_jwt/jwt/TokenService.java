@@ -24,7 +24,7 @@ public class TokenService {
         Algorithm algorithm = Algorithm.HMAC256(secret);
 
         String token = JWT.create()
-                .withIssuer("exemplo-api-token")
+                .withIssuer("carros-api")
                 .withSubject(usuarios.getEmail())// vai pegar o email de quem está fazendo
                 .withExpiresAt(this.gerarDataValidadeToken()) // faz a validade de tempo
                 .sign(algorithm); // vai garantir a segurança
@@ -37,7 +37,7 @@ public class TokenService {
 
         try {
             return JWT.require(algorithm)
-                    .withIssuer("exemplo-api-token") // quem gerou
+                    .withIssuer("carros-api") // quem gerou
                     .build()
                     .verify(token)
                     .getSubject(); // se estiver certo vai pegar o subject do email 

@@ -12,7 +12,7 @@ public class Modelos extends EntidadeMaster {
 
     @ManyToOne
     @JoinColumn(name = "marca_id")
-    private Marcas marcas;
+    private Marcas marca;
 
     @OneToMany(mappedBy = "modelo")
     private List<Carros> carros;
@@ -27,11 +27,11 @@ public class Modelos extends EntidadeMaster {
     }
 
     public Marcas getMarcas() {
-        return marcas;
+        return marca;
     }
 
     public void setMarcas(Marcas marcas) {
-        this.marcas = marcas;
+        this.marca = marcas;
     }
 
     public List<Carros> getCarros() {
